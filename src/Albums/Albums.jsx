@@ -15,8 +15,8 @@ import Typography from '@material-ui/core/Typography'
 import SearchIcon from '@material-ui/icons/Search'
 
 import { AlbumInfo, AlbumListItem } from '../Album'
-import { fetchAlbums } from '../store/actions'
-import { getAlbumItems, getAlbumnPending } from '../store/selectors'
+import { fetchAlbums, filterAlbums } from '../store/actions'
+import { getAlbumItems, getAlbumnPending, getAlbumsSuccess } from '../store/selectors'
 
 import './styles.css'
 
@@ -91,6 +91,7 @@ const Albums = () => {
     const albumItems = useSelector((state) => getAlbumItems(state))
 
     const isAlbumsPending = useSelector((state) => getAlbumnPending(state))
+    const isAlbumsSuccess = useSelector((state) => getAlbumsSuccess(state))
 
     const isScreenLgUp = useMediaQuery({ query: '(min-width: 1280px)' })
 
@@ -127,7 +128,7 @@ const Albums = () => {
     }
 
     const handleSearch = debounce((key) => {
-        filterAlbums(key)
+        dispatch(filterAlbums(key))
     }, 250)
 
     const handleChange = (e) => {
@@ -138,7 +139,7 @@ const Albums = () => {
 
     const clearFilter = () => {
         setSearchKey('')
-        filterAlbums('')
+        dispatch(filterAlbums(''))
     }
 
     // Virtual Window Rows
@@ -160,8 +161,6 @@ const Albums = () => {
             </div>
         )
     })
-
-    if (albumItems?.length === 0) return <div />
 
     return isAlbumsPending && !isAlbumsSuccess ? (
         <Grid container justifyContent="center" alignItems="center" classes={{ root: classes.spinner }}>
@@ -211,13 +210,14 @@ const Albums = () => {
                 </Grid>
 
                 <Grid container spacing={2} className="albums-wrap">
-                    {(!albumItems || !albumItems.length) && (
-                        <Grid item xs={12} sm={10} md={8} lg={6} className="albums-list">
-                            <Typography variant="h6" align="center">
-                                No items
-                            </Typography>
-                        </Grid>
-                    )}
+                    {!albumItems ||
+                        (albumItems?.length === 0 && (
+                            <Grid item xs={12} sm={10} md={8} lg={6} className="albums-list">
+                                <Typography variant="h6" align="center">
+                                    No items
+                                </Typography>
+                            </Grid>
+                        ))}
                     {albumItems && albumItems.length > 0 && (
                         <Fragment>
                             <Grid item xs={12} sm={10} md={8} lg={6} className="albums-list">

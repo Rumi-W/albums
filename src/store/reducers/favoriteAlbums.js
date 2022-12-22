@@ -4,7 +4,6 @@ const init = []
 export default (state = init, action = {}) => {
     switch (action.type) {
         case ADD_FAVORITE:
-            console.log('here')
             return [...state, action.item]
 
         case REPLACE_FAVORITES:

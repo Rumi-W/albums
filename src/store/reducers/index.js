@@ -2,12 +2,12 @@ import { combineReducers } from 'redux'
 
 import albums from './albums'
 import favoriteAlbums from './favoriteAlbums'
-import savedFavoriteAblumCards from './savedFavoriteAblumCards'
+import savedFavoriteAlbumCards from './savedFavoriteAlbumCards'
 
 const combinedReducers = combineReducers({
     albums,
     favoriteAlbums,
-    savedFavoriteAblumCards,
+    savedFavoriteAlbumCards,
 })
 
 export default combinedReducers

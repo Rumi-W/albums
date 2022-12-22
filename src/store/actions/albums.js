@@ -6,6 +6,7 @@ import {
     FETCH_ALBUMS_FAILED,
     FETCH_ALBUMS_START,
     FETCH_ALBUMS_SUCCESS,
+    FILTER_ALBUMS,
     TOGGLE_FAVORITE,
 } from './actionTypes'
 import { getAlbumInfo } from './helpers'
@@ -22,6 +23,11 @@ const fetchSuccess = (albums, copy) => ({
     type: FETCH_ALBUMS_SUCCESS,
     albums,
     copy,
+})
+
+export const filterAlbums = (searchKey) => ({
+    type: FILTER_ALBUMS,
+    searchKey,
 })
 
 export const fetchAlbums = () => async (dispatch) => {

@@ -119,8 +119,21 @@ const AlbumListItem = ({ item, selected, maxImgHeight, showAlbumInfo }) => {
         [item, dispatch]
     )
 
+    const handleClickFavorite2 = (e) => {
+        e.stopPropagation()
+        if (item.id === '') return
+
+        if (item.selected) {
+            dispatch(removeFavoriteAlbum(item.id))
+        } else {
+            const itemCopy = { ...item }
+            itemCopy.selected = true
+            dispatch(addFavoriteAlbum(itemCopy))
+        }
+        dispatch(toggleFavorite(item.id))
+    }
+
     const handleCardClick = () => {
-        console.log('card click')
         if (!isScreenLgUp) {
             setOpenModal((prev) => !prev)
         } else {

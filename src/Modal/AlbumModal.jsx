@@ -76,9 +76,8 @@ const AlbumModal = ({
     const classes = useStyles()
 
     const handleClickHeartIcon = (e) => {
-        e.stopPropagation()
         e.preventDefault()
-        handleClickFavorite()
+        handleClickFavorite(e)
     }
 
     return (

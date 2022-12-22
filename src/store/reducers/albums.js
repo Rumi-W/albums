@@ -1,3 +1,4 @@
+import { deepCopy } from '../../utilities'
 import {
     CLEAR_FAVORITES,
     FETCH_ALBUMS_FAILED,
@@ -18,6 +19,7 @@ const initState = {
 
 let origItems = []
 export default (state = initState, action = {}) => {
+    let filtered = null
     switch (action.type) {
         case FETCH_ALBUMS_START:
             return { ...state, pending: true }
@@ -38,6 +40,7 @@ export default (state = initState, action = {}) => {
         case FILTER_ALBUMS:
             filtered =
                 action.searchKey === '' ? deepCopy(origItems) : filterByKey(deepCopy(origItems), action.searchKey)
+
             return { ...state, items: filtered }
 
         case TOGGLE_FAVORITE:
