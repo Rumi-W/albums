@@ -1,0 +1,97 @@
+{
+    "extends": ["airbnb", "prettier", "airbnb/hooks"],
+    "plugins": ["react", "prettier", "react-hooks", "simple-import-sort", "unused-imports"],
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaFeatures": { "jsx": true },
+        "ecmaVersion": 12
+    },
+    "rules": {
+        "prettier/prettier": [1, { "endOfLine": "auto" }],
+        "arrow-body-style": [0, "as-needed"],
+        "camelcase": 0,
+        "class-methods-use-this": 0,
+        "consistent-return": 0,
+        "func-names": 0,
+        "global-require": 1,
+        "import/no-extraneous-dependencies": 0,
+        "import/prefer-default-export": 0,
+        "linebreak-style": [0],
+        "max-len": [1, { "code": 120 }],
+        "no-alert": 0,
+        "no-await-in-loop": 0,
+        "no-console": 0,
+        "no-nested-ternary": 0,
+        "no-param-reassign": 0,
+        "no-plusplus": 0,
+        "no-return-assign": 0,
+        "no-restricted-syntax": [1, "DebuggerStatement"], // 1-warn
+        "no-undef": 0,
+        "no-underscore-dangle": 0,
+        "no-unneeded-ternary": 0,
+        "no-unused-expressions": 0,
+        "no-unused-vars": 1,
+        "no-use-before-define": 0,
+        "no-var": 0,
+        "prefer-const": 0,
+        "prefer-destructuring": 0,
+        "spaced-comment": 0,
+        "unused-imports/no-unused-imports": 1,
+        // React
+        // "react/button-has-type": 0,
+        // "react/destructuring-assignment": 0,
+        "react/forbid-prop-types": 0,
+        "react/function-component-definition": 0,
+        "react/jsx-closing-bracket-location": 0,
+        //"react/jsx-filename-extension": [0],
+        "react/jsx-one-expression-per-line": 0,
+        "react/jsx-curly-newline": 0,
+        "react/jsx-props-no-spreading": 0,
+        "react/jsx-fragments": ["warn", "element"],
+        "react/jsx-uses-react": 1,
+        "react/jsx-uses-vars": 1,
+        "react/no-access-state-in-setstate": 0,
+        //"react/no-array-index-key": 0,
+        //"react/no-did-update-set-state": 1,
+        //"react/no-unused-state": 1,
+        //"react/prefer-stateless-function": [0],
+        "react/prop-types": 0,
+        "react/react-in-jsx-scope": 0,
+        "react/require-default-props": 0,
+        "react/sort-comp": [0],
+        //"react/state-in-constructor": 0,
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn",
+        "jsx-control-statements/jsx-use-if-tag": 0,
+        //"jsx-a11y/anchor-is-valid": 0,
+        "jsx-a11y/label-has-associated-control": 0
+        //"jsx-a11y/click-events-have-key-events": 0,
+        //"jsx-a11y/no-noninteractive-element-interactions": 0
+    },
+    "overrides": [
+        {
+            "files": ["*.js", "*.jsx", "*.ts", "*.tsx"],
+            "rules": {
+                "simple-import-sort/imports": [
+                    "error",
+                    {
+                        "groups": [
+                            // Packages `react` related packages come first.
+                            ["^react", "^@?\\w"],
+                            // Internal packages.
+                            ["^(@|components)(/.*|$)"],
+                            // Side effect imports.
+                            ["^\\u0000"],
+                            // Parent imports. Put `..` last.
+                            ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+                            // Other relative imports. Put same-folder imports and `.` last.
+                            ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+                            // Style imports.
+                            ["^.+\\.?(css)$"]
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,115 @@
+.page-top-link {
+    padding: 10px 80px;
+    font-size: 1rem;
+}
+
+.link {
+    color: rgb(216, 155, 24);
+}
+
+.link:hover {
+    color: rgb(241, 140, 8);
+}
+
+.page-title {
+    display: flex;
+    justify-content: center;
+}
+
+.albums-wrap {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: 100%;
+    padding-top: 10px;
+}
+
+.albums-wrap-favorites {
+    display: flex;
+    width: 99% !important;
+    justify-content: center;
+    height: 99%;
+    padding-top: 10px;
+}
+
+.album-cards-wrap {
+    width: 100%;
+    height: 100%;
+}
+
+.albums {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.albums-list {
+    height: 75vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    border: 1px #e5e5e5 solid;
+    border-radius: 2px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.albums-list-favorites {
+    padding: 10px;
+    height: 75vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    border: 1px #e5e5e5 solid;
+    border-radius: 2px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.album-info {
+    height: 75vh;
+    margin-left: 1rem !important;
+    border: 1px #e5e5e5 solid;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.album-info-content {
+    margin-top: 1rem;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.album-link {
+    margin-top: 1rem;
+}
+
+.album @media screen and (max-width: 1279px) {
+    .albums-wrap {
+        padding: 10px;
+    }
+    .albums-list {
+        width: 60vw;
+    }
+}
+
+/* md */
+@media screen and (max-width: 959px) {
+    .albums-list {
+        width: 80vw;
+    }
+}
+
+/* xs and sm */
+@media screen and (max-width: 599px) {
+    .albums-wrap {
+        padding: 5px;
+    }
+    .albums-list {
+        width: 100vw;
+    }
+    .page-top-link {
+        padding: 10px 20px;
+    }
+}
