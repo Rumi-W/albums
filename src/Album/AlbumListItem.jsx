@@ -175,7 +175,6 @@ const AlbumListItem = ({ item, selected, maxImgHeight, showAlbumInfo }) => {
             {openModal && (
                 <AlbumModal
                     openModal={openModal}
-                    id={item.id}
                     image={item.image}
                     link={item.link}
                     selected={item.selected}

@@ -65,7 +65,6 @@ const AlbumModal = ({
     handleClickFavorite,
     closeModal,
     openModal,
-    id,
     image,
     link,
     selected,
