@@ -34,4 +34,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     npm start
     ```
 
-The application can be accessed at <http://localhost:3000/albums>
+The application can be accessed at <http://localhost:3000/albums/>
